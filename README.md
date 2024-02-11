@@ -45,7 +45,7 @@ Admin users can create,update,delete and view items. also and view all orders us
 - users can choose page size (5,10,20) items per page.
 
 # Unit Test
--the testing unit it test the itemsController and OrderController 
--Testing tools are Moq and NUnit
+-the testing unit it test the itemsController and OrderController. 
+-Testing tools are Moq and NUnit.
 
   

@@ -17,7 +17,7 @@ namespace ShoppingStore.Common.Extensions
                 option.AddPolicy("Customer", policy =>policy.RequireRole("Customer"));
             });
             //this to initialize a deafult admin user, note: all regesterd user will be added as 'Customer'
-            services.AddTransient<DbInitializer>();
+           services.AddTransient<DbInitializer>();
             services.BuildServiceProvider().GetService<DbInitializer>().Initialize().Wait();
 
         }

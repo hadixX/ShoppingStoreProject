@@ -6,9 +6,9 @@ It's a Ecommerce Web Application that allow users to add multiple items to carts
 
 - [Installation](#installation)
 - [Usage](#usage)
-- [UnitTest](#unittest)
+- [Unit Test](#unittest)
 
-## Installation
+# Installation
 
 1)- Clone the Repo project.
 2)- Navigate to the Project Directory: Move into the directory of the cloned repository: cd ShoppingStore.
@@ -21,18 +21,18 @@ It's a Ecommerce Web Application that allow users to add multiple items to carts
 
 Note: make sure you do step 4 and 5 before run the project.
 
-## Usage
+# Usage
 
-# Users Role
+## Users Role
 In this project there are two main roles(Administrator and Customer), the app provide default admin user:
 username: admin@example.com
 password: Admin123!
 
-# Login and Register
+## Login and Register
 users can login or resgiter if not having an account (by default the account role is customer).
 Admin users can create,update,delete and view items. also and view all orders users while customer user can vieew its own orders.
 
-# make an order
+## make an order
 1)- make sure to have an items created in items page by login as admin and go to items page and click on create item and fill the form ( for imageURL place a url link for the item photo from any website or google image (its optional) ).
 2)- users can add multiaple items to the cart.
 3)- after adding items go and click on cart icon to view the users items of choice.
@@ -40,11 +40,11 @@ Admin users can create,update,delete and view items. also and view all orders us
 5)- click on place order button to submmit the order.
 6)- users can access thier order by clicking on orders menu.
 
-# Filters and pagination
+## Filters and pagination
 - in home page and items page, users and filter the items list by typing items name or description.
 - users can choose page size (5,10,20) items per page.
 
-## Unit Test
+# Unit Test
 -the testing unit it test the itemsController and OrderController 
 -Testing tools are Moq and NUnit
 

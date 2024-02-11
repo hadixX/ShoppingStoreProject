@@ -1,0 +1,142 @@
+﻿@using ShoppingStore.Models.Dtos
+@model PagedResultDto<ShoppingStore.Models.Items>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+
+
+<!-- Filter and Page Size Inputs -->
+<div class="row mt-3 mb-4">
+    <div class="col-md-6">
+        <form method="get" asp-action="Index" class="form-inline">
+            <div class="row g-2">
+                <div class="col-md-4">
+                    <input type="text" class="form-control" name="filter" placeholder="Search...">
+                </div>
+                <div class="col">
+                    <button type="submit" class="btn btn-primary">Filter</button>
+                </div>
+
+
+            </div>
+
+        </form>
+    </div>
+    <div class="col-md-6 filterpages">
+        <form method="get" asp-action="Index" class="form-inline ">
+
+            <div class="row">
+                <div class="col-md-4">
+
+                    @if (Model.PageSize == 5)
+                    {
+                        <select class="form-select" name="pageSize" onchange="this.form.submit()">
+                            <option selected>Select Page Size</option>
+                            <option value="5">5</option>
+                            <option value="10">10</option>
+                            <option value="20">20</option>
+                        </select>
+                    }
+                    @if (Model.PageSize == 10)
+                    {
+                        <select class="form-select" name="pageSize" onchange="this.form.submit()">
+                            <option value="5">5</option>
+                            <option value="10" selected>10</option>
+                            <option value="20">20</option>
+                        </select>
+                    }
+                    @if (Model.PageSize == 20)
+                    {
+                        <select class="form-select" name="pageSize" onchange="this.form.submit()">
+                            <option value="5">5</option>
+                            <option value="10">10</option>
+                            <option value="20" selected>20</option>
+                        </select>
+                    }
+                </div>
+
+            </div>
+        </form>
+    </div>
+</div>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+            </th>
+            <th>
+                Name
+            </th>
+            <th>
+                Description
+            </th>
+            <th>
+                Price
+            </th>
+            <th>
+                DateCreated
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Items)
+        {
+            <tr>
+                <td>
+                    @if (string.IsNullOrEmpty(item.ImageURL))
+                    {
+                        <img class="small-image-size" src="~/Content/images/default-item.jpg" />
+                    }
+                    else
+                    {
+                        <img class="small-image-size" src="@item.ImageURL" />
+                    }
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Description)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Price)
+                </td>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.DateCreated)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<!-- Pagination -->
+<nav aria-label="Page navigation">
+    <ul class="pagination justify-content-center mt-4">
+        @for (var i = 1; i <= Model.TotalPages; i++)
+        {
+            <li class="page-item @(i == Model.CurrentPage ? "active" : "")">
+                <a class="page-link" href="?page=@i">@i</a>
+            </li>
+        }
+    </ul>
+</nav>
+<div class="row mt-3">
+    <div class="col">
+        <label>@Model.PageSize of Total Items: @Model.TotalCount</label>
+    </div>
+</div>

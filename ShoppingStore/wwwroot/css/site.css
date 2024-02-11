@@ -1,0 +1,46 @@
+html {
+  font-size: 14px;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+@media (max-width: 576px) {
+    .dropdown-menu{
+        padding:5px;
+    }
+    .filterpages {
+        margin-top: 10px !important;
+    }
+}
+@media (max-width: 768px) {
+    .loginW {
+        width: auto !important;
+       
+    }
+}
+
+.loginW{
+    width:40%;
+}
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  margin-bottom: 60px;
+}
+
+.image-size{
+    height: 200px;
+    width: 100%;
+    object-fit:cover
+}
+
+.small-image-size {
+    height: 50px;
+    width: 50px;
+}
